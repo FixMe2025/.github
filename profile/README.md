@@ -60,7 +60,19 @@ backend/
 ## 👨‍💻 기여자 (Contributors)
 
 이 프로젝트는 아래 두 명의 개발자가 함께 만들었습니다.
-
+  <table>
+    <tr>
+      <td align="center">
+        <strong>김화연</strong><br>
+        <img src="https://avatars.githubusercontent.com/KHY90" width="100" height="100"><br>
+        <a href="https://github.com/KHY90">GitHub</a>
+      </td>
+      <td align="center">
+        <strong>우승엽</strong><br>
+        <img src="https://avatars.githubusercontent.com/wooseungyeop" width="100" height="100"><br>
+        <a href="https://github.com/wooseungyeop">GitHub</a>
+      </td>
+  <table>
 <a href="https://github.com/KHY90" target="_blank">
   <img src="https://avatars.githubusercontent.com/KHY90" 
        alt="KHY90" 
