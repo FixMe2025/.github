@@ -60,7 +60,8 @@ backend/
 ## 👨‍💻 기여자 (Contributors)
 
 이 프로젝트는 아래 두 명의 개발자가 함께 만들었습니다.
-  <table>
+<br />
+  <table align="center">
     <tr>
       <td align="center">
         <strong>김화연</strong><br>
@@ -73,21 +74,7 @@ backend/
         <a href="https://github.com/wooseungyeop">GitHub</a>
       </td>
   <table>
-<a href="https://github.com/KHY90" target="_blank">
-  <img src="https://avatars.githubusercontent.com/KHY90" 
-       alt="KHY90" 
-       width="200" 
-       height="auto" 
-       style="max-width: 100%; height: auto;">
-</a>
-<a href="https://github.com/wooseungyeop" target="_blank">
-  <img src="https://avatars.githubusercontent.com/wooseungyeop" 
-       alt="wooseungyeop" 
-       width="200" 
-       height="auto" 
-       style="max-width: 100%; height: auto;">
-</a>
-
+<br />
 ## 🛠️ 기술 스택 (Tech Stack)
 
 ### Frontend
