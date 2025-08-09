@@ -24,7 +24,9 @@ FixME는 최신 AI 언어 모델을 기반으로 한 한국어 맞춤법 및 문
 FixME는 최신 웹 기술을 활용하여 빠르고 안정적인 서비스를 제공합니다.
 
 - **Frontend**: `Next.js`와 `TypeScript`를 사용하여 반응형 및 인터랙티브 UI를 구현했습니다.
-- **Backend**: `Python`과 `FastAPI`를 기반으로 `skt/kobert-base-v1` Hugging Face 모델을 서빙하여 핵심적인 맞춤법 교정 기능을 수행합니다.
+- **Backend**: `FastAPI`를 기반으로 구축된 한글 맞춤법 교정 및 문장 개선 API 서비스입니다. FixMe 백엔드는 두 가지 주요 서비스 흐름을 가집니다.
+  1.  **통합 서비스 (Integrated Service)**: `comprehensive`, `spellcheck`, `improvement` 엔드포인트를 담당합니다. `IntegratedCorrectionService`가 `ThreadPoolExecutor`를 사용해 여러 모델(`KoAlpaca`, `et5-typos-corrector`)을 병렬로 호출하여 빠른 응답을 제공합니다.
+  2.  **LangGraph 파이프라인**: `pipeline` 엔드포인트를 담당합니다. `LangGraph`를 사용하여 `et5-typos-corrector` (1차 교정)와 `kogrammar-base` (2차 교정) 모델을 순차적으로 실행하는 워크플로우를 구성하여, 더 깊이 있는 교정을 수행합니다.
 - **배포**: `Docker`를 통해 각 구성 요소를 컨테이너화하여 일관성 있는 배포 및 운영 환경을 구축합니다.
 
 ### **Frontend 폴더 구조**
@@ -57,6 +59,16 @@ backend/
 └── Dockerfile
 ```
 
+### **API 엔드포인트**
+
+| Method | Endpoint                               | 설명                                         |
+| ------ | -------------------------------------- | -------------------------------------------- |
+| POST   | `/api/v1/comprehensive/comprehensive`  | 맞춤법, 타이포, 문장 개선을 종합적으로 수행합니다. |
+| POST   | `/api/v1/pipeline/run`                 | LangGraph 파이프라인을 통해 텍스트를 교정합니다. |
+| GET    | `/api/v1/comprehensive/health`         | 종합 서비스의 모든 모델 상태를 확인합니다.   |
+| GET    | `/api/v1/pipeline/health`              | LangGraph 파이프라인의 상태를 확인합니다.    |
+| GET    | `/health`                              | API 서버의 기본 상태를 확인합니다.           |
+
 ## 👨‍💻 기여자 (Contributors)
 
 이 프로젝트는 아래 두 명의 개발자가 함께 만들었습니다.
@@ -87,7 +99,10 @@ backend/
 
 ### Backend
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3.11-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![LangGraph](https://img.shields.io/badge/LangGraph-blue?style=for-the-badge)
+![Transformers](https://img.shields.io/badge/Transformers-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black)
+![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
 
 ### ML
 ![Hugging Face](https://img.shields.io/badge/Hugging%20Face-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black)
